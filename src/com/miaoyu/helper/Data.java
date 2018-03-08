@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class Data {
-    public int nNode = 101;
+    public int nNode = 51;
     public int nVehicle;
     public int[] demand;
     public double[][] distance;

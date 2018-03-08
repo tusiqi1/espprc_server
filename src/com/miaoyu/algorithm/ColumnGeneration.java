@@ -198,10 +198,16 @@ public class ColumnGeneration {
 					//ESPPRC pp = new ESPPRC(data);
 				String dataFile = null;
 				String dir = "Solomon Instances/";
-				String fo = data.fileName.substring(data.fileName.length()-4);
+				int here;
+				if(data.fileName.substring(data.fileName.length()-5).startsWith("/")){
+					here = 4;
+				}else{
+					here = 5;
+				}
+				String fo = data.fileName.substring(data.fileName.length()-here);
 				System.out.println(fo);
-				String instanceType = fo.substring(0,1);
-				int instanceNumber = Integer.parseInt(fo.substring(1,4));
+				String instanceType = fo.substring(0,here-3);
+				int instanceNumber = Integer.parseInt(fo.substring(here-3,here));
 				String extension = ".txt";
 				dataFile = dir + instanceType + instanceNumber + extension;
 				System.out.println("Instance: "+dataFile);
