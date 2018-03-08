@@ -1,0 +1,37 @@
+10
+
+dir
+434
+https://subversion.assembla.com/svn/vroomrepo/PruebaRepositorio/src
+https://subversion.assembla.com/svn/vroomrepo
+
+
+
+2012-05-19T01:40:00.716191Z
+434
+d.duque25
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+0e3dbef9-a59f-4d77-8af2-ba79efc3ab1d
+
+Utilities
+dir
+
+bpc
+dir
+
+test1
+dir
+
