@@ -224,8 +224,8 @@ public class DataHandler {
 			y[customerNumber] =Double.parseDouble(stringReader[2]);
 			service[customerNumber] = (int)(Double.parseDouble(stringReader[6]));
 			demand[customerNumber]=(int)(Double.parseDouble(stringReader[3]));
-			tw_a[customerNumber]= (int)(Double.parseDouble(stringReader[4]));
-			tw_b[customerNumber]= (int)(Double.parseDouble(stringReader[5]));
+			tw_a[customerNumber]= 0;//(int)(Double.parseDouble(stringReader[4]));
+			tw_b[customerNumber]= tw_b[0];//(int)(Double.parseDouble(stringReader[5]));
 			
 			G.addVertex(new Node(customerNumber,demand[customerNumber],service[customerNumber], tw_a[customerNumber],tw_b[customerNumber]));
 			customerNumber++;

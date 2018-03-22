@@ -37,7 +37,9 @@ public class GraphManager{
 		nodes = new Node[numNodes];
 		visited = new int[numNodes];
 		visitedMT = new int[numNodes][DataHandler.numThreads+1];
-		boundsMatrix= new double [numNodes][(int) Math.ceil(DataHandler.tw_b[0]/DataHandler.boundStep)+1];
+		boundsMatrix= new double [numNodes][(int)(Math.ceil((double)DataHandler.tw_b[0]/DataHandler.boundStep))+1];
+
+
 		bestCost= new double [numNodes];
 		for(int i=1; i<numNodes; i++){
 			bestCost[i]=Double.POSITIVE_INFINITY;

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class Data {
-    public int nNode = 51;
+    public int nNode = 26;
     public int nVehicle;
     public int[] demand;
     public double[][] distance;
@@ -63,10 +63,10 @@ public class Data {
                 this.coor_x[i] = Integer.parseInt(entry[1]);
                 this.coor_y[i] = Integer.parseInt(entry[2]);
                 this.demand[i] = Integer.parseInt(entry[3]);
-                this.tw_a[i] = Integer.parseInt(entry[4]);
+                this.tw_a[i] = 0;//Integer.parseInt(entry[4]);
                 if(i == 0)
                     this.tw_b[i] = Integer.parseInt(entry[5]);
-                this.tw_b[i] = Integer.parseInt(entry[5]);
+                this.tw_b[i] = this.tw_b[0];//Integer.parseInt(entry[5]);
                 //this.tw_a[i] = Integer.parseInt(entry[4]);
 
                 //this.tw_b[i] = Integer.parseInt(entry[5]);

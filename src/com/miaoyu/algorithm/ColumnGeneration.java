@@ -199,7 +199,7 @@ public class ColumnGeneration {
 				String dataFile = null;
 				String dir = "Solomon Instances/";
 				int here;
-				if(data.fileName.substring(data.fileName.length()-5).startsWith("/")){
+				if(data.fileName.substring(data.fileName.length()-5).startsWith("\\")||data.fileName.substring(data.fileName.length()-5).startsWith("/")){
 					here = 4;
 				}else{
 					here = 5;
@@ -220,7 +220,7 @@ public class ColumnGeneration {
 				data.readSolomon(numNodes);
 				// Generate an ESPPRC instance with dual variables taken from an iteration of the CG (only available for the R-200 series!)
 				data.generateInstance(alpha);
-
+				//System.out.println("done load");
 ////////////////////////////////////////////////// BOUNDING PROCEDURE //////////////////////////////////////////////////////////////////////////
 				long tNow = System.currentTimeMillis(); 							// Measure current execution time
 
@@ -228,11 +228,10 @@ public class ColumnGeneration {
 				GraphManager.timeIncumbent=GraphManager.nodes[0].tw_b;				// Capture the depot upper time window
 				int lowerTimeLimit = 100; 											// Lower time (resource) limit to stop the bounding procedure. For 100-series we used 50 and for 200-series we used 100;
 				int timeIndex=0;													// Index to store the bounds
-
+				//System.out.println("initialize");
 				while(GraphManager.timeIncumbent>=lowerTimeLimit){					// Check the termination condition
 
 					timeIndex=(int) Math.ceil((GraphManager.timeIncumbent/DataHandler.boundStep));		// Calculate the current index
-
 					for (int x = 1; x <= DataHandler.n; x++) {
 						GraphManager.nodes[x].pulseBound(0, GraphManager.timeIncumbent, 0 , new ArrayList(), x,0); 	// Solve an ESPPRC for all nodes given the time incumbent
 					}
@@ -240,7 +239,6 @@ public class ColumnGeneration {
 					for(int x=1; x<=DataHandler.n; x++){
 						GraphManager.boundsMatrix[x][timeIndex]=GraphManager.bestCost[x];				// Store the best cost found for each node into the bounds matrix
 					}
-
 					GraphManager.overallBestCost=GraphManager.PrimalBound;					// Store the best cost found over all the nodes
 					GraphManager.timeIncumbent-=DataHandler.boundStep;						// Update the time incumbent
 				}

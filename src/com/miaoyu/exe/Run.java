@@ -26,23 +26,8 @@ public class Run {
             output.add(Integer.toString(cg.nColumns));
             output.add(Double.toString(cg.lowerbound));
             output.add(Double.toString((toc - tic)/1000.0));
-            Functions.writeDataCSV("result\\VRPTW\\ES\\", data.fileName, output);
-
-            data = new Data(f.toString());
-            ColumnGeneration_RC cgrc = new ColumnGeneration_RC(data);
-            long tic2 = System.currentTimeMillis();
-            cgrc.solve();
-            long toc2 = System.currentTimeMillis();
-
-            ArrayList<String> output2 = new ArrayList<>();
-            output2.add(f.toString());
-            output2.add(Integer.toString(cgrc.nIter));
-            output2.add(Integer.toString(cgrc.nColumns));
-            output2.add(Double.toString(cgrc.lowerbound));
-            output2.add(Double.toString(cgrc.timerBeforeLast/1000.0));
-            output2.add(Double.toString((toc2 - tic2)/1000.0));
-            Functions.writeDataCSV("result\\VRPTW\\RC\\", data.fileName, output2);
-
+            Functions.writeDataCSV("Data\\CVRPTW\\ES\\", data.fileName, output);
+            break;
         }
     }
 }

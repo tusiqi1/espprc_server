@@ -7,7 +7,7 @@ import com.miaoyu.algorithm.*;
 public class test {
     public static void main(String[] args){
 
-        String fileName = "./solomon_100/RC108.txt";
+        String fileName = "./solomon_100/C101.txt";
 //        Data data = new Data(fileName);
 //        ColumnGeneration_RC cg = new ColumnGeneration_RC(data);
 //
