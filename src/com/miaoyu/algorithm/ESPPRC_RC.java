@@ -14,7 +14,7 @@ public class ESPPRC_RC {
     public ArrayList<Label> labels;
     public Set<Route> solutionSet;
     public int[] color;
-    public int nColor = 7;
+    public int nColor = 5;
     public int nIter = 100;
     public ESPPRC_RC(Data d){
         this.data = d;

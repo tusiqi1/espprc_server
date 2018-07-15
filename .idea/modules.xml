@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ESPPRC-jPulse.iml" filepath="$PROJECT_DIR$/ESPPRC-jPulse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/espprc-pulse.iml" filepath="$PROJECT_DIR$/espprc-pulse.iml" />
     </modules>
   </component>
 </project>

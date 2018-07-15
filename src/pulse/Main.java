@@ -24,8 +24,8 @@ public class Main {
 		// Data file information
 		String dataFile = null;
 		String dir = "Solomon Instances/";
-		String instanceType = "R";
-		int instanceNumber = 201;
+		String instanceType = "C";
+		int instanceNumber = 101;
 		String extension = ".txt";
 		dataFile = dir + instanceType + instanceNumber + extension;
 		System.out.println("Instance: "+dataFile);
@@ -36,7 +36,7 @@ public class Main {
 		int stepSize = 10;
 		DataHandler data = new DataHandler(dataFile, instanceType, instanceNumber, numThreads, stepSize);
 		data.readSolomon(numNodes);
-		
+
 		// Generate an ESPPRC instance with dual variables taken from an iteration of the CG (only available for the R-200 series!)
 		data.generateInstance(instanceNumber);
 		
@@ -47,7 +47,7 @@ public class Main {
 		GraphManager.timeIncumbent=GraphManager.nodes[0].tw_b;				// Capture the depot upper time window
 		int lowerTimeLimit = 100; 											// Lower time (resource) limit to stop the bounding procedure. For 100-series we used 50 and for 200-series we used 100;		
 		int timeIndex=0;													// Index to store the bounds
-		
+
 		while(GraphManager.timeIncumbent>=lowerTimeLimit){					// Check the termination condition
 			
 			timeIndex=(int) Math.ceil((GraphManager.timeIncumbent/DataHandler.boundStep));		// Calculate the current index
@@ -66,7 +66,6 @@ public class Main {
 		
 		
 ////////////////////////////////////////////////END OF BOUNDING PROCEDURE //////////////////////////////////////////////////////////////////////////		
-	
 		// Run pulse
 		GraphManager.timeIncumbent+=DataHandler.boundStep; 				// Set time incumbent to the last value solved
 		GraphManager.PrimalBound=0;										// Reset the primal bound

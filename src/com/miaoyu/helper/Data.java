@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class Data {
-    public int nNode = 26;
+    public int nNode = 51;
     public int nVehicle;
     public int[] demand;
     public double[][] distance;
@@ -25,8 +25,9 @@ public class Data {
     public int capacity;
     public String fileName;
 
-    public Data(String file){
+    public Data(String file, int n){
         try {
+            this.nNode = n;
             this.fileName = file.split("\\.txt")[0];
             FileReader inputFile = new FileReader(file);
             BufferedReader bufferReader = new BufferedReader(inputFile);
@@ -62,10 +63,13 @@ public class Data {
                 entry = line.trim().split("\\s+");
                 this.coor_x[i] = Integer.parseInt(entry[1]);
                 this.coor_y[i] = Integer.parseInt(entry[2]);
-                this.demand[i] = Integer.parseInt(entry[3]);
+                this.demand[i] = 50;//Integer.parseInt(entry[3]);
                 this.tw_a[i] = 0;//Integer.parseInt(entry[4]);
-                if(i == 0)
+                if(i == 0){
                     this.tw_b[i] = Integer.parseInt(entry[5]);
+                    this.demand[i] = Integer.parseInt(entry[3]);
+
+                }
                 this.tw_b[i] = this.tw_b[0];//Integer.parseInt(entry[5]);
                 //this.tw_a[i] = Integer.parseInt(entry[4]);
 
@@ -84,7 +88,7 @@ public class Data {
                     this.distance[i][j] = compute_dist(i,j);
                     this.distance[j][i] = this.distance[i][j];
                 }
-                this.distance[i][nNode] = compute_dist(i,0);
+                this.distance[i][nNode] = 0;//compute_dist(i,0);
                 this.distance[nNode][i] = this.distance[i][nNode];
             }
             System.out.println("Reading complete");
@@ -96,13 +100,13 @@ public class Data {
 
 
     public double compute_dist(int i , int j){
-        return ((Math.sqrt(Math.pow(coor_x[i]-coor_x[j], 2) + Math.pow(coor_y[i] - coor_y[j], 2))+1E-6));
+        return Math.floor((Math.sqrt(Math.pow(coor_x[i]-coor_x[j], 2) + Math.pow(coor_y[i] - coor_y[j], 2))*10))/10;
     }
 
 
     public static void main(String[] args){
         //for test purpose
-        Data data = new Data("./solomon_100/C103.txt");
+        Data data = new Data("./solomon_100/C103.txt", 50);
         System.out.println(data.fileName);
         System.out.println("Test data");
         System.out.println("n, k, capacity: "+ data.nNode + " " + data.nVehicle + " "+data.capacity);

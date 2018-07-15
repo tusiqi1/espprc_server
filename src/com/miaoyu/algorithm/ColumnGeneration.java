@@ -215,7 +215,7 @@ public class ColumnGeneration {
 				// Read data file and define the following parameters: number of threads, number of nodes, and step size for the bounding procedure
 				int numThreads = 1;
 				int numNodes = data.nNode-1;
-				int stepSize = 10;
+				int stepSize = 100;
 				DataHandler data = new DataHandler(dataFile, instanceType, instanceNumber, numThreads, stepSize);
 				data.readSolomon(numNodes);
 				// Generate an ESPPRC instance with dual variables taken from an iteration of the CG (only available for the R-200 series!)
