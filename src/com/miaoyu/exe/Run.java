@@ -28,6 +28,7 @@ public class Run {
                 output.add(Integer.toString(cg.nIter));
                 output.add(Integer.toString(cg.nColumns));
                 output.add(Double.toString(cg.lowerbound));
+                output.add(Double.toString(cg.timerBeforeLast));
                 output.add(Double.toString((toc - tic)/1000.0));
                 Functions.writeDataCSV("Data/UCVRP/RandCol/", data.fileName+"-"+n, output);
             }

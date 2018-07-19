@@ -7,7 +7,7 @@ import com.miaoyu.algorithm.*;
 public class test {
     public static void main(String[] args){
 
-        String fileName = "./solomon_100/C101.txt";
+        String fileName = "./solomon_100/R101.txt";
 //        Data data = new Data(fileName);
 //        ColumnGeneration_RC cg = new ColumnGeneration_RC(data);
 //
@@ -16,8 +16,8 @@ public class test {
 //        long toc = System.currentTimeMillis();
         String f = fileName.substring(fileName.length()-8);
         System.out.println(f+","+f.substring(0,1)+"");
-        Data data = new Data(fileName, 101);
-        ColumnGeneration cg2 = new ColumnGeneration(data);
+        Data data = new Data(fileName, 61);
+        ColumnGeneration_RC cg2 = new ColumnGeneration_RC(data);
 
         long tic2 = System.currentTimeMillis();
         //cg2.test();

@@ -11,7 +11,7 @@ public class ESPPRC {
     public Data data;
     public ArrayList<Label> labels;
     public Set<Route> solutionSet;
-    public int limitLength = 7;
+    public int limitLength = 5;
     public long timer;
     public ESPPRC(Data d){
         this.data = d;
@@ -244,7 +244,7 @@ public class ESPPRC {
                         path = labels.get(path).prevIndex;
                     }
                     Collections.reverse(temp);
-                    if(temp.size() <= limitLength){
+                    if(temp.size() <= 2*limitLength){
                         Route newroute = new Route(temp);
                         newroute.cost = s.cost;
                         solutionSet.add(newroute);
