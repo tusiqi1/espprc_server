@@ -25,6 +25,7 @@ public class Data {
     public int capacity;
     public String fileName;
 
+
     public Data(String file, int n){
         try {
             this.nNode = n;

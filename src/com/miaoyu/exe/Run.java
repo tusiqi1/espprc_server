@@ -16,19 +16,22 @@ public class Run {
             if(!f.toString().endsWith(".txt")){
                 continue;
             }
-            Data data = new Data(f.toString(), 81);
-            ColumnGeneration cg = new ColumnGeneration(data);
-            long tic = System.currentTimeMillis();
-            cg.solve();
-            long toc = System.currentTimeMillis();
+            for(int n = 51; n <=101; n=n+10){
+                Data data = new Data(f.toString(), n);
+                ColumnGeneration_RC cg = new ColumnGeneration_RC(data);
+                long tic = System.currentTimeMillis();
+                cg.solve();
+                long toc = System.currentTimeMillis();
 
-            ArrayList<String> output = new ArrayList<>();
-            output.add(f.toString());
-            output.add(Integer.toString(cg.nIter));
-            output.add(Integer.toString(cg.nColumns));
-            output.add(Double.toString(cg.lowerbound));
-            output.add(Double.toString((toc - tic)/1000.0));
-            Functions.writeDataCSV("Data/CVRPTW/RC/", data.fileName, output);
+                ArrayList<String> output = new ArrayList<>();
+                output.add(f.toString());
+                output.add(Integer.toString(cg.nIter));
+                output.add(Integer.toString(cg.nColumns));
+                output.add(Double.toString(cg.lowerbound));
+                output.add(Double.toString((toc - tic)/1000.0));
+                Functions.writeDataCSV("Data/UCVRP/RandCol/", data.fileName+"-"+n, output);
+            }
+
 //            break;
         }
     }

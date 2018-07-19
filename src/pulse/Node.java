@@ -70,7 +70,7 @@ public class Node {
 		}		
 		
 		// Try to prune pulses with the pruning strategies: cycles, infeasibility, bounds, and rollback
-		if(GraphManager.visited[id]==0 && pTime <= tw_b && (pCost+calcBoundPhaseI(pTime,root))<GraphManager.bestCost[root] && !rollback(path,pCost,pTime)){
+		if(GraphManager.visited[id]==0 && pLoad <= DataHandler.Q &&pTime <= tw_b && (pCost+calcBoundPhaseI(pLoad,root))<GraphManager.bestCost[root] && !rollback(path,pCost,pTime)){
 			// If the pulse is not pruned add it to the path
 			GraphManager.visited[id] = 1;
 			path.add(id);
@@ -135,7 +135,7 @@ public void pulseMT(double PLoad, double PTime, double PCost, ArrayList path, do
 			PTime=this.tw_a;
 		}
 		// Try to prune pulses with the pruning strategies
-		if((GraphManager.visitedMT[id][thread]==0 && (PCost+CalcBoundPhaseII(PTime))<GraphManager.PrimalBound && !rollback(path,PCost,PTime))){
+		if((GraphManager.visitedMT[id][thread]==0 && (PCost+CalcBoundPhaseII(PLoad))<GraphManager.PrimalBound && !rollback(path,PCost,PTime))){
 			// If the pulse is not pruned add it to the path
 			GraphManager.visitedMT[id][thread]=1;
 			path.add(id);	
@@ -231,17 +231,17 @@ private boolean rollback(ArrayList path, double pCost, double pTime) {
 * @param root current root node
 * @return
 */
-private double calcBoundPhaseI(double time, int root) {
+private double calcBoundPhaseI(double cap, int root) {
 
 double Bound=0;
 // If the time consumed is less than the last time incumbent solved and the node id is larger than the current root node being explored it means that there is no lower bound available and we must use the naive bound 
-if(time<GraphManager.timeIncumbent+DataHandler.boundStep && this.id>=root){
-	Bound=((GraphManager.timeIncumbent+DataHandler.boundStep-time)*GraphManager.naiveDualBound+GraphManager.overallBestCost);
+if(cap<GraphManager.capIncumbent+DataHandler.boundStep && this.id>=root){
+	Bound=((GraphManager.capIncumbent+DataHandler.boundStep-cap)*GraphManager.naiveDualBound+GraphManager.overallBestCost);
 }
 
 else {
 // Else use the available bound	
-	int Index=((int) Math.floor(time/DataHandler.boundStep)); 
+	int Index=((int) Math.floor(cap/DataHandler.boundStep));
 	Bound=GraphManager.boundsMatrix[this.id][Index];
 		
 }
@@ -254,19 +254,19 @@ return Bound;
 * @param Time current time
 * @return
 */
-private double CalcBoundPhaseII(double Time) {
+private double CalcBoundPhaseII(double Cap) {
 
 
 double Bound=0;
 //If the time consumed is less than the current time incumbent it means that there is no lower bound available and we must use the naive bound 
-if(Time<GraphManager.timeIncumbent){
+if(Cap<GraphManager.capIncumbent){
 	
-	Bound=(GraphManager.timeIncumbent-Time)*GraphManager.naiveDualBound+GraphManager.overallBestCost;
+	Bound=(GraphManager.capIncumbent-Cap)*GraphManager.naiveDualBound+GraphManager.overallBestCost;
 	
 }
 else {
 	// Else use the available bound	
-	int Index=((int) Math.floor(Time/DataHandler.boundStep));
+	int Index=((int) Math.floor(Cap/DataHandler.boundStep));
 			
 	Bound=GraphManager.boundsMatrix[this.id][Index];
 	

@@ -28,7 +28,7 @@ public class GraphManager{
 	public static double[] bestCost;		// Best cost found for each node at each iteration of the bounding stage
 	public static double overallBestCost;	// Overall best cost found at each iteration of the bounding stage
 	public static double timeIncumbent;		// Time incumbent for the bounding stage
-	
+	public static double capIncumbent;
 	public static FinalNode finalNode;		// The final node overrides the class node and is different because it stops the recursion
 		
 	// Class constructor
@@ -37,7 +37,7 @@ public class GraphManager{
 		nodes = new Node[numNodes];
 		visited = new int[numNodes];
 		visitedMT = new int[numNodes][DataHandler.numThreads+1];
-		boundsMatrix= new double [numNodes][(int)(Math.ceil((double)DataHandler.tw_b[0]/DataHandler.boundStep))+1];
+		boundsMatrix= new double [numNodes][(int)(Math.ceil((double)DataHandler.Q/DataHandler.boundStep))+1];
 
 
 		bestCost= new double [numNodes];

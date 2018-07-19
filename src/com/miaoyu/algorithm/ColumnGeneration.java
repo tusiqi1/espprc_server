@@ -215,7 +215,7 @@ public class ColumnGeneration {
 				// Read data file and define the following parameters: number of threads, number of nodes, and step size for the bounding procedure
 				int numThreads = 1;
 				int numNodes = data.nNode-1;
-				int stepSize = 100;
+				int stepSize = 50;
 				DataHandler data = new DataHandler(dataFile, instanceType, instanceNumber, numThreads, stepSize);
 				data.readSolomon(numNodes);
 				// Generate an ESPPRC instance with dual variables taken from an iteration of the CG (only available for the R-200 series!)
@@ -225,22 +225,24 @@ public class ColumnGeneration {
 				long tNow = System.currentTimeMillis(); 							// Measure current execution time
 
 				GraphManager.calNaiveDualBound();									// Calculate a naive lower bound
-				GraphManager.timeIncumbent=GraphManager.nodes[0].tw_b;				// Capture the depot upper time window
-				int lowerTimeLimit = 100; 											// Lower time (resource) limit to stop the bounding procedure. For 100-series we used 50 and for 200-series we used 100;
-				int timeIndex=0;													// Index to store the bounds
+				GraphManager.capIncumbent=200;				// Capture the depot upper time window
+				int lowerCapLimit = 50; 											// Lower time (resource) limit to stop the bounding procedure. For 100-series we used 50 and for 200-series we used 100;
+				int capIndex=0;													// Index to store the bounds
 				//System.out.println("initialize");
-				while(GraphManager.timeIncumbent>=lowerTimeLimit){					// Check the termination condition
+				while(GraphManager.capIncumbent>=lowerCapLimit){					// Check the termination condition
 
-					timeIndex=(int) Math.ceil((GraphManager.timeIncumbent/DataHandler.boundStep));		// Calculate the current index
+					capIndex=(int) Math.ceil((GraphManager.capIncumbent/DataHandler.boundStep));		// Calculate the current index
 					for (int x = 1; x <= DataHandler.n; x++) {
-						GraphManager.nodes[x].pulseBound(0, GraphManager.timeIncumbent, 0 , new ArrayList(), x,0); 	// Solve an ESPPRC for all nodes given the time incumbent
+						//GraphManager.nodes[x].pulseBound(0, GraphManager.timeIncumbent, 0 , new ArrayList(), x,0); 	// Solve an ESPPRC for all nodes given the time incumbent
+						GraphManager.nodes[x].pulseBound(GraphManager.capIncumbent, 0, 0 , new ArrayList(), x,0); 	// Solve an ESPPRC for all nodes given the time incumbent
+
 					}
 
 					for(int x=1; x<=DataHandler.n; x++){
-						GraphManager.boundsMatrix[x][timeIndex]=GraphManager.bestCost[x];				// Store the best cost found for each node into the bounds matrix
+						GraphManager.boundsMatrix[x][capIndex]=GraphManager.bestCost[x];				// Store the best cost found for each node into the bounds matrix
 					}
 					GraphManager.overallBestCost=GraphManager.PrimalBound;					// Store the best cost found over all the nodes
-					GraphManager.timeIncumbent-=DataHandler.boundStep;						// Update the time incumbent
+					GraphManager.capIncumbent-=DataHandler.boundStep;						// Update the time incumbent
 				}
 
 				System.out.println("here!");
@@ -248,7 +250,7 @@ public class ColumnGeneration {
 ////////////////////////////////////////////////END OF BOUNDING PROCEDURE //////////////////////////////////////////////////////////////////////////
 
 				// Run pulse
-				GraphManager.timeIncumbent+=DataHandler.boundStep; 				// Set time incumbent to the last value solved
+				GraphManager.capIncumbent+=DataHandler.boundStep; 				// Set time incumbent to the last value solved
 				GraphManager.PrimalBound=0;										// Reset the primal bound
 
 				GraphManager.nodes[0].pulseMT(0, 0, 0, new ArrayList(),0,0); 	// Run the pulse procedure on the source node

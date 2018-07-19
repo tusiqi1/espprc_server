@@ -16,7 +16,7 @@ public class test {
 //        long toc = System.currentTimeMillis();
         String f = fileName.substring(fileName.length()-8);
         System.out.println(f+","+f.substring(0,1)+"");
-        Data data = new Data(fileName, 50);
+        Data data = new Data(fileName, 101);
         ColumnGeneration cg2 = new ColumnGeneration(data);
 
         long tic2 = System.currentTimeMillis();

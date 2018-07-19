@@ -204,7 +204,7 @@ public class ColumnGeneration_RC {
 						nColumns++;
 					}
 					timerBeforeLast = System.currentTimeMillis() - timer;
-				} else if(pp.solve(1)) {
+				} else if(pp.solve(5)) {
 						oncemore = true;
 						newroute = pp.solutionSet;
 						System.out.println("number of new route found by ESPPRC:" + newroute.size());
