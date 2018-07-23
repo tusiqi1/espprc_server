@@ -10,8 +10,11 @@ import com.miaoyu.helper.Data;
 import com.miaoyu.helper.Route;
 import gurobi.*;
 import gurobi.GRB.DoubleAttr;
+import pulse.DataHandler;
+import pulse.GraphManager;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -49,7 +52,7 @@ public class ColumnGeneration_RC {
 	 *
 	 * @return
 	 */
-	public double solve(){
+	public double solve()throws InterruptedException, NumberFormatException, IOException {
 		int i, j, k;
 		try {
 
@@ -187,27 +190,10 @@ public class ColumnGeneration_RC {
 					Set<Route>newroute = new HashSet<Route>();
 					ESPPRC pp = new ESPPRC(data);
 					ESPPRC_RC pprc = new ESPPRC_RC(data);
-					if(pprc.solve()){
-					oncemore = true;
-					newroute = pprc.solutionSet;
-					System.out.println("number of new route found:" + newroute.size());
-					for(Route r : newroute){
-						GRBColumn col = new GRBColumn();
-						for(int v : r.route){
-							System.out.print(v + ",");
-							col.addTerm(1, cons_visit[v]);
-						}
-						r.updateCost(data.distance);
-						GRBVar newvar = master.addVar(0, 1, r.cost, GRB.CONTINUOUS, col,"lambda");
-						lambda.add(newvar);
-						routes.add(r);
-						nColumns++;
-					}
-					timerBeforeLast = System.currentTimeMillis() - timer;
-				} else if(pp.solve(5)) {
+					if(pprc.solve()) {
 						oncemore = true;
-						newroute = pp.solutionSet;
-						System.out.println("number of new route found by ESPPRC:" + newroute.size());
+						newroute = pprc.solutionSet;
+						System.out.println("number of new route found:" + newroute.size());
 						for (Route r : newroute) {
 							GRBColumn col = new GRBColumn();
 							for (int v : r.route) {
@@ -215,13 +201,132 @@ public class ColumnGeneration_RC {
 								col.addTerm(1, cons_visit[v]);
 							}
 							r.updateCost(data.distance);
-							//							System.out.println("Path for "+k+": "+Arrays.toString(r.route.toArray())+" "+r.cost);
-							//							System.out.println(col);
 							GRBVar newvar = master.addVar(0, 1, r.cost, GRB.CONTINUOUS, col, "lambda");
 							lambda.add(newvar);
 							routes.add(r);
 							nColumns++;
 						}
+						timerBeforeLast = System.currentTimeMillis() - timer;
+//				} else if(pp.solve(5)) {
+//						oncemore = true;
+//						newroute = pp.solutionSet;
+//						System.out.println("number of new route found by ESPPRC:" + newroute.size());
+//						for (Route r : newroute) {
+//							GRBColumn col = new GRBColumn();
+//							for (int v : r.route) {
+//								System.out.print(v + ",");
+//								col.addTerm(1, cons_visit[v]);
+//							}
+//							r.updateCost(data.distance);
+//							//							System.out.println("Path for "+k+": "+Arrays.toString(r.route.toArray())+" "+r.cost);
+//							//							System.out.println(col);
+//							GRBVar newvar = master.addVar(0, 1, r.cost, GRB.CONTINUOUS, col, "lambda");
+//							lambda.add(newvar);
+//							routes.add(r);
+//							nColumns++;
+//						}
+//					}
+					}else{
+						oncemore = false;
+						master.optimize();
+						//ESPPRC pp = new ESPPRC(data);
+						String dataFile = null;
+						String dir = "Solomon Instances/";
+						int here;
+						if(data.fileName.substring(data.fileName.length()-5).startsWith("\\")||data.fileName.substring(data.fileName.length()-5).startsWith("/")){
+							here = 4;
+						}else{
+							here = 5;
+						}
+						String fo = data.fileName.substring(data.fileName.length()-here);
+						System.out.println(fo);
+						String instanceType = fo.substring(0,here-3);
+						int instanceNumber = Integer.parseInt(fo.substring(here-3,here));
+						String extension = ".txt";
+						dataFile = dir + instanceType + instanceNumber + extension;
+						System.out.println("Instance: "+dataFile);
+
+						// Read data file and define the following parameters: number of threads, number of nodes, and step size for the bounding procedure
+						int numThreads = 1;
+						int numNodes = data.nNode-1;
+						int stepSize = 30;
+						DataHandler data = new DataHandler(dataFile, instanceType, instanceNumber, numThreads, stepSize);
+						data.readSolomon(numNodes);
+						// Generate an ESPPRC instance with dual variables taken from an iteration of the CG (only available for the R-200 series!)
+						data.generateInstance(alpha);
+						//System.out.println("done load");
+////////////////////////////////////////////////// BOUNDING PROCEDURE //////////////////////////////////////////////////////////////////////////
+						long tNow = System.currentTimeMillis(); 							// Measure current execution time
+
+						GraphManager.calNaiveDualBound();									// Calculate a naive lower bound
+						GraphManager.capIncumbent=200;				// Capture the depot upper time window
+						int lowerCapLimit = 30; 											// Lower time (resource) limit to stop the bounding procedure. For 100-series we used 50 and for 200-series we used 100;
+						int capIndex=0;													// Index to store the bounds
+						//System.out.println("initialize");
+						while(GraphManager.capIncumbent>=lowerCapLimit){					// Check the termination condition
+
+							capIndex=(int) Math.ceil((GraphManager.capIncumbent/DataHandler.boundStep));		// Calculate the current index
+							for (int x = 1; x <= DataHandler.n; x++) {
+								//GraphManager.nodes[x].pulseBound(0, GraphManager.timeIncumbent, 0 , new ArrayList(), x,0); 	// Solve an ESPPRC for all nodes given the time incumbent
+								GraphManager.nodes[x].pulseBound(GraphManager.capIncumbent, 0, 0 , new ArrayList(), x,0); 	// Solve an ESPPRC for all nodes given the time incumbent
+
+							}
+
+							for(int x=1; x<=DataHandler.n; x++){
+								GraphManager.boundsMatrix[x][capIndex]=GraphManager.bestCost[x];				// Store the best cost found for each node into the bounds matrix
+							}
+							GraphManager.overallBestCost=GraphManager.PrimalBound;					// Store the best cost found over all the nodes
+							GraphManager.capIncumbent-=DataHandler.boundStep;						// Update the time incumbent
+						}
+
+						System.out.println("here!");
+
+////////////////////////////////////////////////END OF BOUNDING PROCEDURE //////////////////////////////////////////////////////////////////////////
+
+						// Run pulse
+						GraphManager.capIncumbent+=DataHandler.boundStep; 				// Set time incumbent to the last value solved
+						GraphManager.PrimalBound=0;										// Reset the primal bound
+
+						GraphManager.nodes[0].pulseMT(0, 0, 0, new ArrayList(),0,0); 	// Run the pulse procedure on the source node
+
+
+						// Print results
+
+						long time = (long) ((System.currentTimeMillis()-tNow));			// Calculate execution time
+
+						System.out.println("Execution time: "+time/1000.0+" seconds\n");
+
+						System.out.println("************ OPTIMAL SOLUTION *****************\n");
+						System.out.println("Optimal cost: "+GraphManager.finalNode.PathCost);
+						System.out.println("Optimal time: "+GraphManager.finalNode.PathTime);
+						System.out.println("Optimal Load: "+GraphManager.finalNode.PathLoad);
+						System.out.println();
+						System.out.println("Optimal path: ");
+						System.out.println(GraphManager.finalNode.Path);
+
+						if(GraphManager.finalNode.PathCost < -1E-6){
+							oncemore = true;
+							ArrayList<Integer> rls = new ArrayList<>();
+							for(i = 1; i < GraphManager.finalNode.Path.size() - 1; i++){
+								rls.add((Integer) GraphManager.finalNode.Path.get(i));
+							}
+							Route r = new Route(rls);
+							System.out.println("number of new route found:" + newroute.size());
+							GRBColumn col = new GRBColumn();
+							for(int v : r.route){
+								System.out.print(v + ",");
+								col.addTerm(1, cons_visit[v]);
+							}
+							r.updateCost(data.distance);
+							//							System.out.println("Path for "+k+": "+Arrays.toString(r.route.toArray())+" "+r.cost);
+							//							System.out.println(col);
+							GRBVar newvar = master.addVar(0, 1, r.cost, GRB.CONTINUOUS, col,"lambda");
+							lambda.add(newvar);
+							routes.add(r);
+							nColumns += 1;
+
+						}
+						master.update();
 					}
 					pp = null;
 					pprc = null;

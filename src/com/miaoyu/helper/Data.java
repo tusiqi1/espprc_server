@@ -64,7 +64,7 @@ public class Data {
                 entry = line.trim().split("\\s+");
                 this.coor_x[i] = Integer.parseInt(entry[1]);
                 this.coor_y[i] = Integer.parseInt(entry[2]);
-                this.demand[i] = 50;//Integer.parseInt(entry[3]);
+                this.demand[i] = 30;//Integer.parseInt(entry[3]);
                 this.tw_a[i] = 0;//Integer.parseInt(entry[4]);
                 if(i == 0){
                     this.tw_b[i] = Integer.parseInt(entry[5]);

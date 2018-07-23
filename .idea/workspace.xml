@@ -3,30 +3,58 @@
   <component name="ChangeListManager">
     <list default="true" id="d140f777-3ccb-4408-a4c2-11bed096ee56" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-101.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-101.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-51.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-51.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-61.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-61.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-71.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-71.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-81.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-81.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-91.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-91.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-101.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-101.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-51.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-51.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-61.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-61.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-71.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-71.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-81.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-81.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-91.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-91.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-101.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-101.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-51.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-51.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-61.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-61.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-71.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-71.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-81.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-81.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-91.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-91.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/summary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/summary.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/C101-101.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/C101-51.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/C101-61.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/C101-71.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/C101-81.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/C101-91.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/R101-101.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/R101-51.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/R101-61.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/R101-71.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/R101-81.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/R101-91.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/RC101-101.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/RC101-51.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/RC101-61.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/RC101-71.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/RC101-81.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/RC101-91.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/Pulse/solomon_100/summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-101.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-51.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-61.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-71.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-81.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/C101-91.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-101.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-51.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-61.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-71.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-81.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/R101-91.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-101.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-51.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-61.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-71.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-81.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/RC101-91.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/UCVRP/RandCol/solomon_100/summary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/espprc-pulse/com/miaoyu/algorithm/ColumnGeneration.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/espprc-pulse/com/miaoyu/algorithm/ColumnGeneration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/espprc-pulse/com/miaoyu/algorithm/ColumnGeneration_RC$GRBVarArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/espprc-pulse/com/miaoyu/algorithm/ColumnGeneration_RC$GRBVarArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/espprc-pulse/com/miaoyu/algorithm/ColumnGeneration_RC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/espprc-pulse/com/miaoyu/algorithm/ColumnGeneration_RC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/espprc-pulse/com/miaoyu/exe/CleanResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/espprc-pulse/com/miaoyu/exe/CleanResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/espprc-pulse/com/miaoyu/exe/Run.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/espprc-pulse/com/miaoyu/exe/Run.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/espprc-pulse/com/miaoyu/helper/Data.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/espprc-pulse/com/miaoyu/helper/Data.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/espprc-pulse/pulse/DataHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/espprc-pulse/pulse/DataHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration_RC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration_RC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC_RC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC_RC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/miaoyu/exe/CleanResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/miaoyu/exe/CleanResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/miaoyu/exe/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/miaoyu/exe/Run.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/miaoyu/exe/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/miaoyu/exe/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/miaoyu/helper/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/miaoyu/helper/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pulse/DataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pulse/DataHandler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,20 +66,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Run.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/Run.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+            <state relative-caret-position="550">
+              <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -59,8 +78,8 @@
       <file leaf-file-name="ColumnGeneration_RC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration_RC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5225">
-              <caret line="223" column="25" selection-start-line="223" selection-start-column="25" selection-end-line="223" selection-end-column="25" />
+            <state relative-caret-position="197">
+              <caret line="251" column="41" selection-start-line="251" selection-start-column="41" selection-end-line="251" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -68,8 +87,8 @@
       <file leaf-file-name="CleanResult.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/CleanResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            <state>
+              <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -77,17 +96,17 @@
       <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miaoyu/helper/Data.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="72" column="17" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="17" />
+            <state relative-caret-position="-119">
+              <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Functions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/miaoyu/helper/Functions.java">
+      <file leaf-file-name="DataHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pulse/DataHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2725">
-              <caret line="112" selection-start-line="112" selection-end-line="112" />
+            <state relative-caret-position="1075">
+              <caret line="225" column="37" selection-start-line="225" selection-start-column="37" selection-end-line="225" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -95,8 +114,8 @@
       <file leaf-file-name="ColumnGeneration.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="249" column="52" selection-start-line="249" selection-start-column="52" selection-end-line="249" selection-end-column="52" />
+            <state relative-caret-position="681">
+              <caret line="228" column="38" selection-start-line="228" selection-start-column="38" selection-end-line="228" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,20 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ESPPRC.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="254" lean-forward="true" selection-start-line="254" selection-end-line="254" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ESPPRC_RC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC_RC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="-850">
+              <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -125,8 +135,26 @@
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pulse/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2150">
-              <caret line="86" column="75" selection-start-line="86" selection-start-column="75" selection-end-line="86" selection-end-column="75" />
+            <state relative-caret-position="625">
+              <caret line="84" selection-start-line="84" selection-end-line="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GraphManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pulse/GraphManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="806">
+              <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FinalNode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pulse/FinalNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -144,14 +172,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration.java" />
         <option value="$PROJECT_DIR$/src/pulse/GraphManager.java" />
         <option value="$PROJECT_DIR$/src/pulse/Node.java" />
-        <option value="$PROJECT_DIR$/src/com/miaoyu/helper/Data.java" />
-        <option value="$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration_RC.java" />
         <option value="$PROJECT_DIR$/src/com/miaoyu/exe/test.java" />
-        <option value="$PROJECT_DIR$/src/com/miaoyu/exe/Run.java" />
         <option value="$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC.java" />
+        <option value="$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC_RC.java" />
+        <option value="$PROJECT_DIR$/src/com/miaoyu/helper/Data.java" />
+        <option value="$PROJECT_DIR$/src/pulse/DataHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration.java" />
+        <option value="$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration_RC.java" />
+        <option value="$PROJECT_DIR$/src/com/miaoyu/exe/Run.java" />
         <option value="$PROJECT_DIR$/src/com/miaoyu/exe/CleanResult.java" />
       </list>
     </option>
@@ -165,7 +195,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1734" />
@@ -177,6 +207,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -243,7 +274,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -367,14 +397,17 @@
       <updated>1531694671852</updated>
       <workItem from="1531694675318" duration="8798000" />
       <workItem from="1531989982348" duration="1675000" />
+      <workItem from="1532005031544" duration="41000" />
+      <workItem from="1532271938609" duration="10376000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10473000" />
+    <option name="totallyTimeSpent" value="20890000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="3456" height="1416" extended-state="6" />
+    <frame x="-8" y="-8" width="3456" height="1416" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -382,15 +415,15 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50088704" side_tool="true" visible="true" weight="0.32933652" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50118273" side_tool="true" weight="0.32933652" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49911296" weight="0.32933652" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49940863" weight="0.32933652" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49911296" visible="true" weight="0.32933652" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49881727" weight="0.32933652" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.123595506" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12536961" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Learn" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -398,7 +431,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39968026" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -406,6 +439,37 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49911296" visible="true" weight="0.32933652" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12536961" />
+      <window_info id="Learn" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="UI Designer" order="5" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49881727" weight="0.32933652" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50118273" side_tool="true" weight="0.32933652" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49970433" weight="0.32933652" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -414,6 +478,152 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/Run.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration_RC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5225">
+          <caret line="223" column="25" selection-start-line="223" selection-start-column="25" selection-end-line="223" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/helper/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1600">
+          <caret line="72" column="17" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/helper/Functions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2725">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5900">
+          <caret line="249" column="52" selection-start-line="249" selection-start-column="52" selection-end-line="249" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6250">
+          <caret line="254" selection-start-line="254" selection-end-line="254" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC_RC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pulse/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2150">
+          <caret line="86" column="75" selection-start-line="86" selection-start-column="75" selection-end-line="86" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/CleanResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/Run.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration_RC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5225">
+          <caret line="223" column="25" selection-start-line="223" selection-start-column="25" selection-end-line="223" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/helper/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1600">
+          <caret line="72" column="17" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/helper/Functions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2725">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5900">
+          <caret line="249" column="52" selection-start-line="249" selection-start-column="52" selection-end-line="249" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6250">
+          <caret line="254" lean-forward="true" selection-start-line="254" selection-end-line="254" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC_RC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pulse/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2150">
+          <caret line="86" column="75" selection-start-line="86" selection-start-column="75" selection-end-line="86" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/CleanResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -494,17 +704,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pulse/GraphManager.java">
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+        <state relative-caret-position="731">
+          <caret line="254" selection-start-line="254" selection-end-line="254" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pulse/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2150">
-          <caret line="86" column="75" selection-start-line="86" selection-start-column="75" selection-end-line="86" selection-end-column="75" />
+        <state relative-caret-position="400">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="681">
+          <caret line="228" column="38" selection-start-line="228" selection-start-column="38" selection-end-line="228" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/helper/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-119">
+          <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -515,62 +742,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/helper/Data.java">
+    <entry file="file://$PROJECT_DIR$/src/pulse/DataHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="72" column="17" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="249" column="52" selection-start-line="249" selection-start-column="52" selection-end-line="249" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration_RC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5225">
-          <caret line="223" column="25" selection-start-line="223" selection-start-column="25" selection-end-line="223" selection-end-column="25" />
+        <state relative-caret-position="1075">
+          <caret line="225" column="37" selection-start-line="225" selection-start-column="37" selection-end-line="225" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC_RC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="-850">
+          <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ESPPRC.java">
+    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/algorithm/ColumnGeneration_RC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="254" lean-forward="true" selection-start-line="254" selection-end-line="254" />
+        <state relative-caret-position="197">
+          <caret line="251" column="41" selection-start-line="251" selection-start-column="41" selection-end-line="251" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/Run.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+        <state relative-caret-position="550">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/test.java">
+    <entry file="file://$PROJECT_DIR$/src/pulse/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+        <state relative-caret-position="625">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pulse/FinalNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pulse/GraphManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="47" column="23" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/miaoyu/exe/CleanResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        <state>
+          <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
