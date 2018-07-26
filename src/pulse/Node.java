@@ -134,6 +134,13 @@ public void pulseMT(double PLoad, double PTime, double PCost, ArrayList path, do
 		if(PTime<this.tw_a){
 			PTime=this.tw_a;
 		}
+
+		//statistics
+		if (GraphManager.visitedMT[id][thread]==0 && (PCost+CalcBoundPhaseII(PLoad))<GraphManager.PrimalBound){
+			GraphManager.count_bound++;
+			GraphManager.count_depth_bound += path.size();
+		}
+
 		// Try to prune pulses with the pruning strategies
 		if((GraphManager.visitedMT[id][thread]==0 && (PCost+CalcBoundPhaseII(PLoad))<GraphManager.PrimalBound && !rollback(path,PCost,PTime))){
 			// If the pulse is not pruned add it to the path
@@ -155,6 +162,7 @@ public void pulseMT(double PLoad, double PTime, double PCost, ArrayList path, do
 				NewPDist=(PDist+DataHandler.distList[magicIndex.get(i)]);
 				// Check feasibility and propagate pulse
 				if( NewPTime<=GraphManager.nodes[Head].tw_b && NewPLoad<=DataHandler.Q && NewPTime<=GraphManager.nodes[0].tw_b){
+					GraphManager.count_inf++;
 					// If the head of the arc is the final node, pulse the final node
 					if (Head == 0) {
 						GraphManager.finalNode.pulseMT(NewPLoad,NewPTime,NewPCost, path, NewPDist,thread);
@@ -218,6 +226,7 @@ private boolean rollback(ArrayList path, double pCost, double pTime) {
 		
 		
 		if(directCost<=pCost ){
+			GraphManager.count_roll++;
 			return true;
 		}
 	}
@@ -227,7 +236,7 @@ private boolean rollback(ArrayList path, double pCost, double pTime) {
 
 
 /** This method calculates a lower bound given a time consumption at a given node
-* @param time current time
+* @param cap current time
 * @param root current root node
 * @return
 */
@@ -251,7 +260,7 @@ return Bound;
 
 
 /** This method calculates a lower bound given a time consumption at a given node
-* @param Time current time
+* @param Cap current time
 * @return
 */
 private double CalcBoundPhaseII(double Cap) {

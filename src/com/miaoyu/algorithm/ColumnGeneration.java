@@ -24,6 +24,12 @@ public class ColumnGeneration {
 	public ArrayList<Route> routes;
 	public ArrayList<Route> artificialRoute;
 	public ArrayList<Route> solRoutes;
+
+	public static long count_bound=0;
+	public static long count_depth_bound=0;
+	public static long count_inf=0;
+	public static long count_roll=0;
+
 	private int nNode;
 	private int nVehicle;
 	public long timer;
@@ -215,7 +221,7 @@ public class ColumnGeneration {
 				// Read data file and define the following parameters: number of threads, number of nodes, and step size for the bounding procedure
 				int numThreads = 1;
 				int numNodes = data.nNode-1;
-				int stepSize = 30;
+				int stepSize = 28;
 				DataHandler data = new DataHandler(dataFile, instanceType, instanceNumber, numThreads, stepSize);
 				data.readSolomon(numNodes);
 				// Generate an ESPPRC instance with dual variables taken from an iteration of the CG (only available for the R-200 series!)
@@ -226,7 +232,7 @@ public class ColumnGeneration {
 
 				GraphManager.calNaiveDualBound();									// Calculate a naive lower bound
 				GraphManager.capIncumbent=200;				// Capture the depot upper time window
-				int lowerCapLimit = 30; 											// Lower time (resource) limit to stop the bounding procedure. For 100-series we used 50 and for 200-series we used 100;
+				int lowerCapLimit = 70; 											// Lower time (resource) limit to stop the bounding procedure. For 100-series we used 50 and for 200-series we used 100;
 				int capIndex=0;													// Index to store the bounds
 				//System.out.println("initialize");
 				while(GraphManager.capIncumbent>=lowerCapLimit){					// Check the termination condition
@@ -301,8 +307,12 @@ public class ColumnGeneration {
 //					//routes[k].get(i).setQ(lambda[k].getElement(i).get(GRB.DoubleAttr.X));
 //					routes.get(i).sol = 0;//lambda[k].getElement(i).get(GRB.DoubleAttr.X);
 //
-
 			lowerbound = master.get(DoubleAttr.ObjVal);
+			count_bound=GraphManager.count_bound;
+			count_depth_bound=GraphManager.count_depth_bound;
+			count_inf=GraphManager.count_inf;
+			count_roll=GraphManager.count_roll;
+			System.out.println(count_bound+":"+count_depth_bound);
 //			double sum = 0;
 //			for(k = 0; k < nVehicle; k++){
 //				System.out.println("Printing solution for vehicle "+k);

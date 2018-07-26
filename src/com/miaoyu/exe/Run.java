@@ -32,7 +32,7 @@ public class Run {
                 output.add(Double.toString(cg.lowerbound));
                 output.add(Double.toString(cg.timerBeforeLast/1000.0));
                 output.add(Double.toString((toc - tic)/1000.0));
-                Functions.writeDataCSV("Data/UCVRP6/RandCol/", data.fileName+"-"+n, output);
+                Functions.writeDataCSV("Data/UCVRP7/RandCol/", data.fileName+"-"+n, output);
                 //Functions.writeDataCSV("Data/UCVRP6/Pulse/", data.fileName+"-"+n, output);
 
             }

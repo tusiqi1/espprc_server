@@ -11,7 +11,7 @@ import java.io.*;
 public class CleanResult {
 
     public static void main(String[] args){
-        File file = new File("Data/UCVRP6/RandCol/solomon_100/");
+        File file = new File("Data/UCVRP7/Pulse/solomon_100/");
         System.out.println(Arrays.toString(file.listFiles()));
         ArrayList<String> summary = new ArrayList<>();
         for(File f : file.listFiles()) {
@@ -30,6 +30,6 @@ public class CleanResult {
             summary.add(output);
 
         }
-        writeDataCSV("Data/UCVRP6/RandCol/solomon_100/","summary", summary);
+        writeDataCSV("Data/UCVRP7/Pulse/solomon_100/","summary", summary);
     }
 }

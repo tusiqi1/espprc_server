@@ -30,7 +30,13 @@ public class GraphManager{
 	public static double timeIncumbent;		// Time incumbent for the bounding stage
 	public static double capIncumbent;
 	public static FinalNode finalNode;		// The final node overrides the class node and is different because it stops the recursion
-		
+
+	public static long count_bound=0;
+	public static long count_depth_bound=0;
+	public static long count_inf=0;
+	public static long count_roll=0;
+
+
 	// Class constructor
 	public GraphManager( int numNodes) {
 		
