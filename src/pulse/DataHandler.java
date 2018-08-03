@@ -223,7 +223,7 @@ public class DataHandler {
 			x[customerNumber] =Double.parseDouble(stringReader[1]);
 			y[customerNumber] =Double.parseDouble(stringReader[2]);
 			service[customerNumber] = (int)(Double.parseDouble(stringReader[6]));
-			demand[customerNumber]=28;//(int)(Double.parseDouble(stringReader[3]));
+			demand[customerNumber]=40;//(int)(Double.parseDouble(stringReader[3]));
 			tw_a[customerNumber]= 0;//(int)(Double.parseDouble(stringReader[4]));
 			tw_b[customerNumber]= tw_b[0];//(int)(Double.parseDouble(stringReader[5]));
 			
@@ -248,9 +248,9 @@ public class DataHandler {
 				double dINT = Math.floor(d_ij*10)/10;
 				distance[i][j] = dINT;
 				distance[j][i] = dINT;
-				if(j==n){
-					distance[i][j] = 0;
-				}
+//				if(j==n){
+//					distance[i][j] = 0;
+//				}
 				
 				cost[i][j] = dINT ;
 				cost[j][i] = dINT;

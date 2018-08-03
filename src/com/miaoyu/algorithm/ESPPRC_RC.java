@@ -90,7 +90,7 @@ public class ESPPRC_RC {
         }
     }
 
-    public void solve(int nbroute){
+    public void solve(int nbroute) throws InterruptedException{
         //initialization
         int i, j, currentIndex;
         int nbsol;
@@ -260,10 +260,19 @@ public class ESPPRC_RC {
 
     }
 
+
+
     public boolean solve(){
-        for(int i = 0; i < nIter && solutionSet.size() < 30; i++){
+        //for(int i = 0; i < nIter && solutionSet.size() < 30; i++){
+        for(int i = 0; i <  30; i++){
             randomColor();
-            solve(30);
+            try{
+                solve(30);
+            }catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
         }
         if(solutionSet.size() > 0){
             System.out.println("new routes count"+solutionSet.size());

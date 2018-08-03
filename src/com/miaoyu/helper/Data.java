@@ -25,6 +25,9 @@ public class Data {
     public int capacity;
     public String fileName;
 
+    public int maxThread;
+    public Thread[] threads;
+
 
     public Data(String file, int n){
         try {
@@ -64,7 +67,7 @@ public class Data {
                 entry = line.trim().split("\\s+");
                 this.coor_x[i] = Integer.parseInt(entry[1]);
                 this.coor_y[i] = Integer.parseInt(entry[2]);
-                this.demand[i] = 28;//Integer.parseInt(entry[3]);
+                this.demand[i] = 40;//Integer.parseInt(entry[3]);
                 this.tw_a[i] = 0;//Integer.parseInt(entry[4]);
                 if(i == 0){
                     this.tw_b[i] = Integer.parseInt(entry[5]);
@@ -89,7 +92,7 @@ public class Data {
                     this.distance[i][j] = compute_dist(i,j);
                     this.distance[j][i] = this.distance[i][j];
                 }
-                this.distance[i][nNode] = 0;//compute_dist(i,0);
+                this.distance[i][nNode] = compute_dist(i,0);
                 this.distance[nNode][i] = this.distance[i][nNode];
             }
             System.out.println("Reading complete");
@@ -99,6 +102,14 @@ public class Data {
         }
     }
 
+
+    public void setThread(int n){
+        this.maxThread = n;
+        this.threads = new Thread[maxThread+1];
+        for (int i = 0; i < threads.length; i++) {
+            threads[i] = new Thread();
+        }
+    }
 
     public double compute_dist(int i , int j){
         return Math.floor((Math.sqrt(Math.pow(coor_x[i]-coor_x[j], 2) + Math.pow(coor_y[i] - coor_y[j], 2))*10))/10;

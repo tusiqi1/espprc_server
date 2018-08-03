@@ -18,8 +18,8 @@ public class Run {
             }
             for(int n = 51; n <=101; n=n+10){
                 Data data = new Data(f.toString(), n);
-                ColumnGeneration_RC cg = new ColumnGeneration_RC(data);
-                //ColumnGeneration cg = new ColumnGeneration(data);
+                //ColumnGeneration_RC cg = new ColumnGeneration_RC(data);
+                ColumnGeneration cg = new ColumnGeneration(data);
 
                 long tic = System.currentTimeMillis();
                 cg.solve();
@@ -30,10 +30,10 @@ public class Run {
                 output.add(Integer.toString(cg.nIter));
                 output.add(Integer.toString(cg.nColumns));
                 output.add(Double.toString(cg.lowerbound));
-                output.add(Double.toString(cg.timerBeforeLast/1000.0));
+                //output.add(Double.toString(cg.timerBeforeLast/1000.0));
                 output.add(Double.toString((toc - tic)/1000.0));
-                Functions.writeDataCSV("Data/UCVRP7/RandCol/", data.fileName+"-"+n, output);
-                //Functions.writeDataCSV("Data/UCVRP6/Pulse/", data.fileName+"-"+n, output);
+                //Functions.writeDataCSV("Data/UCVRP7/RandCol/", data.fileName+"-"+n, output);
+                Functions.writeDataCSV("Data/UCVRP5/Pulse-multi/", data.fileName+"-"+n, output);
 
             }
 

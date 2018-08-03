@@ -219,9 +219,9 @@ public class ColumnGeneration {
 				System.out.println("Instance: "+dataFile);
 
 				// Read data file and define the following parameters: number of threads, number of nodes, and step size for the bounding procedure
-				int numThreads = 1;
+				int numThreads = 8;
 				int numNodes = data.nNode-1;
-				int stepSize = 28;
+				int stepSize = 40;
 				DataHandler data = new DataHandler(dataFile, instanceType, instanceNumber, numThreads, stepSize);
 				data.readSolomon(numNodes);
 				// Generate an ESPPRC instance with dual variables taken from an iteration of the CG (only available for the R-200 series!)
@@ -232,7 +232,7 @@ public class ColumnGeneration {
 
 				GraphManager.calNaiveDualBound();									// Calculate a naive lower bound
 				GraphManager.capIncumbent=200;				// Capture the depot upper time window
-				int lowerCapLimit = 70; 											// Lower time (resource) limit to stop the bounding procedure. For 100-series we used 50 and for 200-series we used 100;
+				int lowerCapLimit = 60; 											// Lower time (resource) limit to stop the bounding procedure. For 100-series we used 50 and for 200-series we used 100;
 				int capIndex=0;													// Index to store the bounds
 				//System.out.println("initialize");
 				while(GraphManager.capIncumbent>=lowerCapLimit){					// Check the termination condition

@@ -72,8 +72,8 @@ public class GraphManager{
 	public static void  calNaiveDualBound() {
 		GraphManager.naiveDualBound=Double.POSITIVE_INFINITY;
 		for (int i = 0; i < DataHandler.numArcs; i++) {
-			if(DataHandler.timeList[i]!=0 && DataHandler.costList[i]/DataHandler.timeList[i]<=GraphManager.naiveDualBound ){
-				GraphManager.naiveDualBound=DataHandler.costList[i]/DataHandler.timeList[i];
+			if(DataHandler.loadList[i]!=0 && DataHandler.costList[i]/DataHandler.loadList[i]<=GraphManager.naiveDualBound ){
+				GraphManager.naiveDualBound=DataHandler.costList[i]/DataHandler.loadList[i];
 				}
 			}
 		}
