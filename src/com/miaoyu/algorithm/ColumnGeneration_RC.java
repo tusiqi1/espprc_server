@@ -56,7 +56,7 @@ public class ColumnGeneration_RC {
 	 *
 	 * @return
 	 */
-	public double solve()throws InterruptedException, NumberFormatException, IOException {
+	public double solve()throws GRBException, InterruptedException, NumberFormatException, IOException {
 		int i, j, k;
 		try {
 
@@ -194,7 +194,7 @@ public class ColumnGeneration_RC {
 					Set<Route>newroute = new HashSet<Route>();
 					ESPPRC pp = new ESPPRC(data);
 					//ESPPRC_RC pprc = new ESPPRC_RC(data);
-					data.setThread(7);
+					data.setThread(100);
 					RC_MultiThread pprc = new RC_MultiThread(data);
 
 					if(pprc.solve()) {
@@ -214,6 +214,7 @@ public class ColumnGeneration_RC {
 							nColumns++;
 						}
 						timerBeforeLast = System.currentTimeMillis() - timer;
+					//}
 //				} else if(pp.solve(5)) {
 //						oncemore = true;
 //						newroute = pp.solutionSet;
@@ -232,10 +233,13 @@ public class ColumnGeneration_RC {
 //							routes.add(r);
 //							nColumns++;
 //						}
-//					}
+					//}
 					}else{
+						timerBeforeLast = System.currentTimeMillis() - timer;
+
 						oncemore = false;
-						master.optimize();
+
+						//master.optimize();
 						//ESPPRC pp = new ESPPRC(data);
 						String dataFile = null;
 						String dir = "Solomon Instances/";
@@ -256,7 +260,7 @@ public class ColumnGeneration_RC {
 						// Read data file and define the following parameters: number of threads, number of nodes, and step size for the bounding procedure
 						int numThreads = 1;
 						int numNodes = data.nNode-1;
-						int stepSize = 28;
+						int stepSize = 34;
 						DataHandler data = new DataHandler(dataFile, instanceType, instanceNumber, numThreads, stepSize);
 						data.readSolomon(numNodes);
 						// Generate an ESPPRC instance with dual variables taken from an iteration of the CG (only available for the R-200 series!)

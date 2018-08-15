@@ -94,11 +94,16 @@ public class RC_MultiThread {
             }
         }
         public Set<Route> threadSolutionSet;
+        public Set<Integer> test;
 
         public RCTask(){
             this.threadSolutionSet = new HashSet<>();
+            this.test = new HashSet<>();
+            this.labels = new ArrayList<Label>();
+            this.color = new int[nColor];
         }
         public void run(){
+            test.add(1);
             randomColor();
             int i, j, currentIndex;
             int nbsol;
@@ -261,7 +266,6 @@ public class RC_MultiThread {
                 }
 
             }
-            System.out.println(threadSolutionSet.toString());
         }
     }
 
@@ -296,7 +300,6 @@ public class RC_MultiThread {
 
         for(int i = 1; i < data.maxThread; i++){
             solutionSet.addAll(tasks[i].threadSolutionSet);
-            System.out.println(tasks[i].threadSolutionSet.toString());
         }
 
         if(solutionSet.size() > 0){

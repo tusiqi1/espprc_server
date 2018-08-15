@@ -8,15 +8,8 @@ public class test {
     public static void main(String[] args){
 
         String fileName = "./solomon_100/R101.txt";
-//        Data data = new Data(fileName);
-//        ColumnGeneration_RC cg = new ColumnGeneration_RC(data);
-//
-//        long tic = System.currentTimeMillis();
-//        cg.solve();
-//        long toc = System.currentTimeMillis();
-        String f = fileName.substring(fileName.length()-8);
-        System.out.println(f+","+f.substring(0,1)+"");
-        Data data = new Data(fileName, 61);
+
+        Data data = new Data(fileName, 101);
         ColumnGeneration_RC cg2 = new ColumnGeneration_RC(data);
 
         long tic2 = System.currentTimeMillis();

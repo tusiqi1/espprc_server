@@ -14,7 +14,7 @@ public class ESPPRC_RC {
     public ArrayList<Label> labels;
     public Set<Route> solutionSet;
     public int[] color;
-    public int nColor = 7;
+    public int nColor = 6;
     public int nIter = 100;
     public ESPPRC_RC(Data d){
         this.data = d;
@@ -263,8 +263,8 @@ public class ESPPRC_RC {
 
 
     public boolean solve(){
-        //for(int i = 0; i < nIter && solutionSet.size() < 30; i++){
-        for(int i = 0; i <  30; i++){
+        for(int i = 0; i < nIter && solutionSet.size() < 30; i++){
+        //for(int i = 0; i <  30; i++){
             randomColor();
             try{
                 solve(30);
