@@ -283,17 +283,23 @@ public class DataHandler {
 private void readCapacity() throws IOException {
 		File file = new File("Solomon Instances/capacities.txt");
 		BufferedReader bufRdr = new BufferedReader(new FileReader(file));
-		for (int i = 0; i < 6; i++) {
-			String line = bufRdr.readLine(); //READ Num Nodes
-			String[] spread = line.split(":");
-			if(instanceType.equals(spread[0])){
-				int serie = Integer.parseInt(spread[1]);
-				if (instanceNumber-serie<50) {
-					Q=Integer.parseInt(spread[2]);
-					return;
-				}
-			}
-		}
+//		for (int i = 0; i < 6; i++) {
+//			String line = bufRdr.readLine(); //READ Num Nodes
+//			String[] spread = line.split(":");
+//			if(instanceType.equals(spread[0])){
+//				int serie = Integer.parseInt(spread[1]);
+//				if (instanceNumber-serie<50) {
+//					Q=Integer.parseInt(spread[2]);
+//					return;
+//				}else{
+//					Q=200;
+//					return;
+//				}
+//			}
+//		}
+		Q=200;
+		return;
+
 		
 		
 	}
