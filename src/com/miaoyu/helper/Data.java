@@ -29,7 +29,7 @@ public class Data {
     public Thread[] threads;
 
 
-    public Data(String file, int n){
+    public Data(String file, int n, int l){
         try {
             this.nNode = n;
             this.fileName = file.split("\\.txt")[0];
@@ -49,7 +49,7 @@ public class Data {
             line = bufferReader.readLine();
             entry = line.trim().split("\\s+");
             this.nVehicle = Integer.parseInt(entry[0]);
-            this.capacity = Integer.parseInt(entry[1]);
+            this.capacity = l;//Integer.parseInt(entry[1]);
 
             //initialize parameters
             this.coor_x = new int[nNode];
@@ -67,7 +67,7 @@ public class Data {
                 entry = line.trim().split("\\s+");
                 this.coor_x[i] = Integer.parseInt(entry[1]);
                 this.coor_y[i] = Integer.parseInt(entry[2]);
-                this.demand[i] = 50;//Integer.parseInt(entry[3]);
+                this.demand[i] = 1;//Integer.parseInt(entry[3]);
                 this.tw_a[i] = 0;//Integer.parseInt(entry[4]);
                 if(i == 0){
                     this.tw_b[i] = Integer.parseInt(entry[5]);
@@ -78,7 +78,7 @@ public class Data {
                 //this.tw_a[i] = Integer.parseInt(entry[4]);
 
                 //this.tw_b[i] = Integer.parseInt(entry[5]);
-                this.service_time[i] = Integer.parseInt(entry[6]);
+                this.service_time[i] = 0;//Integer.parseInt(entry[6]);
             }
             this.tw_a[nNode] = this.tw_a[0];
             this.tw_b[nNode] = this.tw_b[0];
@@ -118,7 +118,7 @@ public class Data {
 
     public static void main(String[] args){
         //for test purpose
-        Data data = new Data("./solomon_100/C103.txt", 50);
+        Data data = new Data("./solomon_100/C103.txt", 50, 4);
         System.out.println(data.fileName);
         System.out.println("Test data");
         System.out.println("n, k, capacity: "+ data.nNode + " " + data.nVehicle + " "+data.capacity);

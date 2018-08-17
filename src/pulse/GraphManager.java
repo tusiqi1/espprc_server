@@ -75,7 +75,9 @@ public class GraphManager{
 			if(DataHandler.loadList[i]!=0 && DataHandler.costList[i]/DataHandler.loadList[i]<=GraphManager.naiveDualBound ){
 				GraphManager.naiveDualBound=DataHandler.costList[i]/DataHandler.loadList[i];
 				}
-			}
 		}
+		//System.out.println("dual bound "+naiveDualBound);
+
+	}
 
 }

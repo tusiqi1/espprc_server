@@ -76,7 +76,9 @@ public class DataHandler {
 			threads[i] = new Thread();
 		}
 	}
-	
+
+
+
 	
 	
 	// Generates random dual variables to build a random subproblem
@@ -173,18 +175,16 @@ public class DataHandler {
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 */
-	public void readSolomon(int numNodes) throws NumberFormatException, IOException {
-		
-		readCapacity();
+	public void readSolomon(int numNodes, int q) throws NumberFormatException, IOException {
+
 		
 		File file = new File(CvsInput);
 		BufferedReader bufRdr = new BufferedReader(new FileReader(file));
 		String line = bufRdr.readLine(); //READ Num Nodes
-		
+		this.Q = q;
 		
 		n = numNodes; 
-		StringTokenizer t = new StringTokenizer(line, " ");
-		
+
 		x = new double[n+1]; 
 		y = new double[n+1]; 
 		demand = new int[n+1]; 
@@ -194,12 +194,10 @@ public class DataHandler {
 		
 		String[] stringReader = new String[7];
 		int indexString = 0;
-		while (t.hasMoreTokens()) {
-			stringReader[indexString] = t.nextToken();
-			indexString++;
-		}
-		
-		
+		stringReader = line.trim().split("\\s+");
+
+
+
 		x[0] =Double.parseDouble(stringReader[1]);
 		y[0] =Double.parseDouble(stringReader[2]);
 		service[0] = (int)(Double.parseDouble(stringReader[6]));
@@ -215,15 +213,12 @@ public class DataHandler {
 			indexString=0;
 			stringReader= new String[7];
 			line = bufRdr.readLine();
-			t = new StringTokenizer(line, " ");
-			while (t.hasMoreTokens()) {
-				stringReader[indexString] = t.nextToken();
-				indexString++;
-			}
+			stringReader = line.trim().split("\\s+");
+
 			x[customerNumber] =Double.parseDouble(stringReader[1]);
 			y[customerNumber] =Double.parseDouble(stringReader[2]);
-			service[customerNumber] = (int)(Double.parseDouble(stringReader[6]));
-			demand[customerNumber]=50;//(int)(Double.parseDouble(stringReader[3]));
+			service[customerNumber] = 0;//(int)(Double.parseDouble(stringReader[6]));
+			demand[customerNumber]=1;//(int)(Double.parseDouble(stringReader[3]));
 			tw_a[customerNumber]= 0;//(int)(Double.parseDouble(stringReader[4]));
 			tw_b[customerNumber]= tw_b[0];//(int)(Double.parseDouble(stringReader[5]));
 			
@@ -280,28 +275,28 @@ public class DataHandler {
 	
 	}
 
-private void readCapacity() throws IOException {
-		File file = new File("Solomon Instances/capacities.txt");
-		BufferedReader bufRdr = new BufferedReader(new FileReader(file));
-//		for (int i = 0; i < 6; i++) {
-//			String line = bufRdr.readLine(); //READ Num Nodes
-//			String[] spread = line.split(":");
-//			if(instanceType.equals(spread[0])){
-//				int serie = Integer.parseInt(spread[1]);
-//				if (instanceNumber-serie<50) {
-//					Q=Integer.parseInt(spread[2]);
-//					return;
-//				}else{
-//					Q=200;
-//					return;
-//				}
-//			}
-//		}
-		Q=200;
-		return;
-
-		
-		
-	}
+//private void readCapacity() throws IOException {
+//		File file = new File("Solomon Instances/capacities.txt");
+//		BufferedReader bufRdr = new BufferedReader(new FileReader(file));
+////		for (int i = 0; i < 6; i++) {
+////			String line = bufRdr.readLine(); //READ Num Nodes
+////			String[] spread = line.split(":");
+////			if(instanceType.equals(spread[0])){
+////				int serie = Integer.parseInt(spread[1]);
+////				if (instanceNumber-serie<50) {
+////					Q=Integer.parseInt(spread[2]);
+////					return;
+////				}else{
+////					Q=200;
+////					return;
+////				}
+////			}
+////		}
+//		Q=4;
+//		return;
+//
+//
+//
+//	}
 
 }

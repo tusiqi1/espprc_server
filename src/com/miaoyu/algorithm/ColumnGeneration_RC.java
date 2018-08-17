@@ -260,18 +260,18 @@ public class ColumnGeneration_RC {
 						// Read data file and define the following parameters: number of threads, number of nodes, and step size for the bounding procedure
 						int numThreads = 1;
 						int numNodes = data.nNode-1;
-						int stepSize = 50;
-						DataHandler data = new DataHandler(dataFile, instanceType, instanceNumber, numThreads, stepSize);
-						data.readSolomon(numNodes);
+						int stepSize = 1;
+						DataHandler d= new DataHandler(dataFile, instanceType, instanceNumber, numThreads, stepSize);
+						d.readSolomon(numNodes, data.capacity);
 						// Generate an ESPPRC instance with dual variables taken from an iteration of the CG (only available for the R-200 series!)
-						data.generateInstance(alpha);
+						d.generateInstance(alpha);
 						//System.out.println("done load");
 ////////////////////////////////////////////////// BOUNDING PROCEDURE //////////////////////////////////////////////////////////////////////////
 						long tNow = System.currentTimeMillis(); 							// Measure current execution time
 
 						GraphManager.calNaiveDualBound();									// Calculate a naive lower bound
-						GraphManager.capIncumbent=200;				// Capture the depot upper time window
-						int lowerCapLimit = 70; 											// Lower time (resource) limit to stop the bounding procedure. For 100-series we used 50 and for 200-series we used 100;
+						GraphManager.capIncumbent=data.capacity;				// Capture the depot upper time window
+						int lowerCapLimit = 2; 											// Lower time (resource) limit to stop the bounding procedure. For 100-series we used 50 and for 200-series we used 100;
 						int capIndex=0;													// Index to store the bounds
 						//System.out.println("initialize");
 						while(GraphManager.capIncumbent>=lowerCapLimit){					// Check the termination condition
