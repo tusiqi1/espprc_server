@@ -11,12 +11,13 @@ public class ESPPRC {
     public Data data;
     public ArrayList<Label> labels;
     public Set<Route> solutionSet;
-    public int limitLength = 5;
+    public int limitLength;
     public long timer;
     public ESPPRC(Data d){
         this.data = d;
         this.labels = new ArrayList<>(d.nNode * 2);
         this.solutionSet = new HashSet<>();
+        this.limitLength = data.capacity;
     }
 
     public class Label{

@@ -14,10 +14,11 @@ public class ESPPRC_RC {
     public ArrayList<Label> labels;
     public Set<Route> solutionSet;
     public int[] color;
-    public int nColor = 6;
+    public int nColor ;
     public int nIter = 100;
     public ESPPRC_RC(Data d){
         this.data = d;
+        this.nColor = data.capacity;
         this.labels = new ArrayList<>(d.nNode * 2);
         this.solutionSet = new HashSet<>();
     }

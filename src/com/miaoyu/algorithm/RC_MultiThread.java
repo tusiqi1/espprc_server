@@ -21,7 +21,7 @@ public class RC_MultiThread {
     public class RCTask implements Runnable{
         public ArrayList<Label> labels;
         public int[] color;
-        public int nColor = 7;
+        public int nColor = data.capacity;
         public int nIter = 100;
 
 
@@ -246,29 +246,10 @@ public class RC_MultiThread {
             // filtering: find the path from depot to the destination
             Integer lab;
             i = 0;
-            while (((lab = P.pollFirst()) != null)) {
-                Label s = labels.get(lab);
-                if (!s.dominated) {
-                    if ((s.cost < -1e-4)) {
-                        // System.out.println(s.cost);
-                        ArrayList<Integer> temp = new ArrayList<Integer>();
-                        int path = s.prevIndex;
-                        while (path > 0) {
-                            temp.add(labels.get(path).endNode);
-                            path = labels.get(path).prevIndex;
-                        }
-                        Collections.reverse(temp);
-                        Route newroute = new Route(temp);
-                        newroute.cost = s.cost;
-                        threadSolutionSet.add(newroute);
-                    }
-                }
-
-            }
-//            while ((i < 30) && ((lab = P.pollFirst()) != null)) {
+//            while (((lab = P.pollFirst()) != null)) {
 //                Label s = labels.get(lab);
 //                if (!s.dominated) {
-//                    if ((i < 30 / 2) || (s.cost < -1e-4)) {
+//                    if ((s.cost < -1e-4)) {
 //                        // System.out.println(s.cost);
 //                        ArrayList<Integer> temp = new ArrayList<Integer>();
 //                        int path = s.prevIndex;
@@ -280,11 +261,30 @@ public class RC_MultiThread {
 //                        Route newroute = new Route(temp);
 //                        newroute.cost = s.cost;
 //                        threadSolutionSet.add(newroute);
-//                        i++;
 //                    }
 //                }
 //
 //            }
+            while ((i < 30) && ((lab = P.pollFirst()) != null)) {
+                Label s = labels.get(lab);
+                if (!s.dominated) {
+                    if ((i < 30 / 2) || (s.cost < -1e-4)) {
+                        // System.out.println(s.cost);
+                        ArrayList<Integer> temp = new ArrayList<Integer>();
+                        int path = s.prevIndex;
+                        while (path > 0) {
+                            temp.add(labels.get(path).endNode);
+                            path = labels.get(path).prevIndex;
+                        }
+                        Collections.reverse(temp);
+                        Route newroute = new Route(temp);
+                        newroute.cost = s.cost;
+                        threadSolutionSet.add(newroute);
+                        i++;
+                    }
+                }
+
+            }
         }
     }
 
