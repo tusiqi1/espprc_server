@@ -7,10 +7,10 @@ import com.miaoyu.algorithm.*;
 public class test {
     public static void main(String[] args){
 
-        String fileName = "./solomon_100/C101.txt";
+        String fileName = "./solomon_100/C161.txt";
 
-        Data data = new Data(fileName, 101,5);
-        ColumnGeneration_RCM cg2 = new ColumnGeneration_RCM(data);
+        Data data = new Data(fileName, 101,4);
+        ColumnGeneration cg2 = new ColumnGeneration(data);
 
         long tic2 = System.currentTimeMillis();
         //cg2.test();

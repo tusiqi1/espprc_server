@@ -192,10 +192,10 @@ public class ColumnGeneration_RC {
 					//					}
 
 					Set<Route>newroute = new HashSet<Route>();
-					ESPPRC pp = new ESPPRC(data);
-					//ESPPRC_RC pprc = new ESPPRC_RC(data);
-					data.setThread(100);
-					RC_MultiThread pprc = new RC_MultiThread(data);
+					//ESPPRC pp = new ESPPRC(data);
+					ESPPRC_RC pprc = new ESPPRC_RC(data);
+					data.setThread(1);
+					//RC_MultiThread pprc = new RC_MultiThread(data);
 
 					if(pprc.solve()) {
 						oncemore = true;
@@ -340,7 +340,7 @@ public class ColumnGeneration_RC {
 						master.update();
 					}
 
-					pp = null;
+					//pp = null;
 					pprc = null;
 				master.update();
 			}
