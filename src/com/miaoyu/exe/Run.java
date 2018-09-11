@@ -71,7 +71,7 @@ public class Run {
                     continue;
                 }
                 for(int l = 4; l < 5; l++){
-                    for(int n = 201; n <=401; n=n+50){
+                    for(int n = 51; n <=101; n=n+10){
                         Data data = new Data(f.toString(), n,l);
                         ColumnGeneration_RCM cg = new ColumnGeneration_RCM(data);
 
