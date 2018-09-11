@@ -70,7 +70,7 @@ public class Run {
                 if(!f.toString().endsWith(".txt")){
                     continue;
                 }
-                for(int l = 5; l < 6; l++){
+                for(int l = 4; l < 5; l++){
                     for(int n = 201; n <=401; n=n+50){
                         Data data = new Data(f.toString(), n,l);
                         ColumnGeneration_RCM cg = new ColumnGeneration_RCM(data);
@@ -91,6 +91,8 @@ public class Run {
                         output.add(Integer.toString(cg.nIter));
                         output.add(Integer.toString(cg.nColumns));
                         output.add(Double.toString(cg.lowerbound));
+                        output.add(Double.toString(cg.upperbound));
+
                         output.add(Double.toString(cg.timerBeforeLast/1000.0));
                         output.add(Double.toString((toc - tic)/1000.0));
                         Functions.writeDataCSV("Data/UCVRP"+l+"/RandCol-multi/", data.fileName+"-"+n, output);
@@ -160,8 +162,8 @@ public class Run {
                 if(!f.toString().endsWith(".txt")){
                     continue;
                 }
-                for(int l = 5; l < 6; l++){
-                    for(int n = 201; n <=501; n=n+50){
+                for(int l = 4; l < 5; l++){
+                    for(int n = 201; n <=401; n=n+50){
                         Data data = new Data(f.toString(), n,l);
                         ColumnGeneration_multi cg = new ColumnGeneration_multi(data);
 
@@ -181,6 +183,8 @@ public class Run {
                         output.add(Integer.toString(cg.nIter));
                         output.add(Integer.toString(cg.nColumns));
                         output.add(Double.toString(cg.lowerbound));
+                        output.add(Double.toString(cg.upperbound));
+
                         //output.add(Double.toString(cg.timerBeforeLast/1000.0));
                         output.add(Double.toString((toc - tic)/1000.0));
                         Functions.writeDataCSV("Data/UCVRP"+l+"/Pulse-multi/", data.fileName+"-"+n, output);

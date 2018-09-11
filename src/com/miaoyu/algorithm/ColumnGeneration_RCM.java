@@ -24,6 +24,7 @@ public class ColumnGeneration_RCM {
 	public Data data;
 	public boolean isStrongBranching;
 	public double lowerbound;
+	public double upperbound;
 	public boolean initialized;
 	public ArrayList<Route> routes;
 	public ArrayList<Route> artificialRoute;
@@ -344,6 +345,107 @@ public class ColumnGeneration_RCM {
 			}
 
 			lowerbound = master.get(DoubleAttr.ObjVal);
+
+			// Dispose of model and environment
+			master.dispose();
+			env.dispose();
+			return objval;
+
+		} catch (GRBException e) {
+			System.out.println("Error code: " + e.getErrorCode() + ". " +
+					e.getMessage());
+			e.printStackTrace();
+		}
+
+		return 1E10;
+	}
+
+	public double solveMIP()throws InterruptedException, NumberFormatException, IOException {
+		int i, j, k;
+		try {
+			String logName = "log\\ES\\"+data.fileName;
+			File f = new File(logName);
+			f.delete();
+			GRBEnv   env   = new GRBEnv(logName);
+			GRBModel master = new GRBModel(env);
+
+
+			//double cost;
+			//update cost of routes
+			for (Route r : routes) {
+				r.updateCost(data.distance);
+			}
+
+			// complete the lp with basic route to ensure feasibility
+			int tot_size = 0;
+			tot_size = routes.size();
+
+
+			if (tot_size < 1) { //execute only the first time
+				System.out.println("Initialize!");
+				for(i = 1; i < nNode; i++){
+					ArrayList<Integer> temp = new ArrayList<Integer>(1);
+					temp.add(i);Route tempRoute = new Route(temp);
+					tempRoute.updateCost(data.distance);
+					routes.add(tempRoute);
+				}
+			}
+			routes = savings(routes);
+			for(Route r : routes){
+				r.updateCost(data.distance);
+			}
+			// create variables
+			GRBVarArray lambda = new GRBVarArray();
+			for(int p = 0; p < routes.size(); p++){
+				lambda.add(master.addVar(0, 1, 0, GRB.BINARY, "lambda"+p));
+			}
+
+			// Add constraints : (2.7)
+			GRBLinExpr expr = new GRBLinExpr();
+
+			expr = new GRBLinExpr();
+			for(int p = 0; p < routes.size();p++){
+				expr.addTerm(routes.get(p).cost, lambda.getElement(p));
+				//System.out.println("v"+k+": "+routes[k].get(p).getCost());
+			}
+			master.setObjective(expr, GRB.MINIMIZE);
+
+
+			// Integrate new variables
+
+			master.update();
+
+
+			// Add visit constraint
+			GRBConstr[] cons_visit = new GRBConstr[nNode];
+			for(j = 1; j < nNode; j++){
+				expr = new GRBLinExpr();
+				for(int p = 0; p < routes.size();p++){
+					if(routes.get(p).contains(j))
+						expr.addTerm(1, lambda.getElement(p));
+				}
+				cons_visit[j] = master.addConstr(expr, GRB.GREATER_EQUAL, 1, "c1"+j);
+			}
+
+			master.optimize();
+			// print master status
+			double objval = Double.MAX_VALUE;
+
+			int optimstatus = master.get(GRB.IntAttr.Status);
+			if (optimstatus == GRB.Status.OPTIMAL) {
+				objval = master.get(DoubleAttr.ObjVal);
+				System.out.println("Current Optimal objective: " + objval);
+			} else{
+				System.out.println("CG: relaxation infeasible!");
+				return 1E10;
+			}
+
+
+
+
+
+			upperbound = master.get(DoubleAttr.ObjVal);
+
 
 			// Dispose of model and environment
 			master.dispose();
