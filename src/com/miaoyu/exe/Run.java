@@ -10,8 +10,8 @@ public class Run {
 
     public static void main(String[] args)throws InterruptedException, NumberFormatException, IOException{
         //record_pulse();
-        //record_pulse_m();
-        record_multi();
+        record_pulse_m();
+        //record_multi();
         //record();
     }
 
@@ -163,7 +163,7 @@ public class Run {
                     continue;
                 }
                 for(int l = 4; l < 5; l++){
-                    for(int n = 201; n <=401; n=n+50){
+                    for(int n = 101; n <=101; n=n+50){
                         Data data = new Data(f.toString(), n,l);
                         ColumnGeneration_multi cg = new ColumnGeneration_multi(data);
 
