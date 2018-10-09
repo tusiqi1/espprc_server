@@ -1,5 +1,6 @@
 package com.miaoyu.exe;
 import java.lang.reflect.Array;
+import java.sql.SQLOutput;
 import java.util.*;
 import com.miaoyu.helper.*;
 import com.miaoyu.algorithm.*;
@@ -7,15 +8,17 @@ import com.miaoyu.algorithm.*;
 public class test {
     public static void main(String[] args){
 
-        String fileName = "./solomon_100/C161.txt";
+        String fileName = ".\\WayneData\\Wayne5.csv";
 
-        Data data = new Data(fileName, 101,4);
-        ColumnGeneration cg2 = new ColumnGeneration(data);
+        DataMD data = new DataMD(fileName, 205,5, 4);
+        System.out.println("here");
+        ColumnGeneration_RCMD cg2 = new ColumnGeneration_RCMD(data);
 
         long tic2 = System.currentTimeMillis();
         //cg2.test();
         try{
-        cg2.solve();}
+            cg2.solve();
+        }
         catch (Exception e){
             System.out.println(e);
         }
