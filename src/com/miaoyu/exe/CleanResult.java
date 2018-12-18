@@ -17,7 +17,8 @@ public class CleanResult {
 //                summary(i,t);
 //            }
 //        }
-        combine(7);
+        summary(4,"LabelCor");
+        //combine(4);
     }
 
 
@@ -43,7 +44,7 @@ public class CleanResult {
             summary.add(output);
 
         }
-        writeDataCSV("Data/UCVRP"+l+"/"+type+"/solomon_100/","summary1", summary);
+        writeDataCSV("Data/UCVRP"+l+"/"+type+"/Solomon_100/","summary_LC", summary);
     }
 
     public static void combine(int l){

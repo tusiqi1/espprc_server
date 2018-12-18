@@ -127,7 +127,7 @@ public class ColumnGeneration_RCMD {
 
 				expr = new GRBLinExpr();
 				for(int d = 0; d < data.nDepot; d++){
-					for(int p = 0; p < routes.size();p++){
+					for(int p = 0; p < routes.get(d).size();p++){
 						expr.addTerm(routes.get(d).get(p).cost, lambda[d].getElement(p));
 						//System.out.println("v"+k+": "+routes[k].get(p).getCost());
 					}
@@ -175,7 +175,7 @@ public class ColumnGeneration_RCMD {
 					return 1E10;
 				}
 
-				if(System.currentTimeMillis() - timer > 1800000) {
+				if(System.currentTimeMillis() - timer > 28800000) {
 					lowerbound = objval;
 					return objval;
 				}
@@ -383,6 +383,7 @@ public class ColumnGeneration_RCMD {
 			GRBEnv   env   = new GRBEnv(logName);
 			GRBModel master = new GRBModel(env);
 
+			master.set(GRB.DoubleParam.TimeLimit, 7200);
 
 			//double cost;
 			//update cost of routes
@@ -427,7 +428,7 @@ public class ColumnGeneration_RCMD {
 
 			for(int d = 0; d < data.nDepot; d++){
 				for(int p = 0; p < routes.get(d).size(); p++){
-					lambda[d].add(master.addVar(0, 1, 0, GRB.CONTINUOUS, "lambda"+p));
+					lambda[d].add(master.addVar(0, 1, 0, GRB.BINARY, "lambda"+p));
 				}
 			}
 
@@ -437,7 +438,7 @@ public class ColumnGeneration_RCMD {
 
 			expr = new GRBLinExpr();
 			for(int d = 0; d < data.nDepot; d++){
-				for(int p = 0; p < routes.size();p++){
+				for(int p = 0; p < routes.get(d).size();p++){
 					expr.addTerm(routes.get(d).get(p).cost, lambda[d].getElement(p));
 					//System.out.println("v"+k+": "+routes[k].get(p).getCost());
 				}

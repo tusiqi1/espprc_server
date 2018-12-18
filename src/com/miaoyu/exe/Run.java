@@ -162,8 +162,11 @@ public class Run {
                 if(!f.toString().endsWith(".txt")){
                     continue;
                 }
-                for(int l = 4; l < 5; l++){
-                    for(int n = 101; n <=101; n=n+50){
+                for(int l = 5; l < 7; l++){
+                    if(!f.toString().endsWith("161.txt")){
+                        continue;
+                    }
+                    for(int n = 201; n <=301; n=n+50){
                         Data data = new Data(f.toString(), n,l);
                         ColumnGeneration_multi cg = new ColumnGeneration_multi(data);
 
@@ -172,10 +175,16 @@ public class Run {
                         long tic = System.currentTimeMillis();
                         try{
                             cg.solve();
+                            cg.solveMIP();
                         }catch (Exception e){
 
                         }
                         long toc = System.currentTimeMillis();
+                        try{
+                            //cg.solveMIP();
+                        }catch (Exception e){
+
+                        }
 
                         ArrayList<String> output = new ArrayList<>();
                         output.add(data.fileName);
@@ -183,7 +192,6 @@ public class Run {
                         output.add(Integer.toString(cg.nIter));
                         output.add(Integer.toString(cg.nColumns));
                         output.add(Double.toString(cg.lowerbound));
-                        output.add(Double.toString(cg.upperbound));
 
                         //output.add(Double.toString(cg.timerBeforeLast/1000.0));
                         output.add(Double.toString((toc - tic)/1000.0));
@@ -199,4 +207,51 @@ public class Run {
         }
     }
 
+    public static void record_pulse_md(){
+        {
+            File file = new File("WayneData/");
+            System.out.println(Arrays.toString(file.listFiles()));
+            int counter = 0;
+            for(File f : file.listFiles()) {
+                System.out.println(f.toString());
+                if(!f.toString().endsWith(".csv")){
+                    continue;
+                }
+                for(int l = 4; l < 5; l++){
+                    for(int n = 101; n <=351; n=n+50){
+                        DataMD data = new DataMD(f.toString(), n, 5, l);
+                        ColumnGeneration_RCMD cg = new ColumnGeneration_RCMD(data);
+
+                        //ColumnGeneration cg = new ColumnGeneration(data);
+
+                        long tic = System.currentTimeMillis();
+                        try{
+                            cg.solve();
+                            cg.solveMIP();
+                        }catch (Exception e){
+
+                        }
+                        long toc = System.currentTimeMillis();
+
+                        ArrayList<String> output = new ArrayList<>();
+                        output.add(data.fileName);
+                        output.add(Integer.toString(data.nNode));
+                        output.add(Integer.toString(cg.nIter));
+                        output.add(Integer.toString(cg.nColumns));
+                        output.add(Double.toString(cg.lowerbound));
+                        output.add(Double.toString(cg.upperbound));
+
+                        //output.add(Double.toString(cg.timerBeforeLast/1000.0));
+                        output.add(Double.toString((toc - tic)/1000.0));
+                        Functions.writeDataCSV("Data/UCVRP"+l+"/RCMD/", data.fileName+"-"+n, output);
+                        //Functions.writeDataCSV("Data/UCVRP4/Pulse-multi/", data.fileName+"-"+n, output);
+                        rt.gc();
+
+                    }
+                }
+
+//            break;
+            }
+        }
+    }
 }

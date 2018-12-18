@@ -8,11 +8,11 @@ import com.miaoyu.algorithm.*;
 public class test {
     public static void main(String[] args){
 
-        String fileName = ".\\WayneData\\Wayne5.csv";
+        String fileName = ".\\solomon_100\\C121.txt";
 
-        DataMD data = new DataMD(fileName, 205,5, 4);
+        Data data = new Data(fileName, 101,4);
         System.out.println("here");
-        ColumnGeneration_RCMD cg2 = new ColumnGeneration_RCMD(data);
+        ColumnGeneration_multi cg2 = new ColumnGeneration_multi(data);
 
         long tic2 = System.currentTimeMillis();
         //cg2.test();

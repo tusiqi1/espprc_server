@@ -245,7 +245,7 @@ public class ColumnGeneration_multi {
 					capIndex=(int) Math.ceil((GraphManager.capIncumbent/DataHandler.boundStep));		// Calculate the current index
 					for (int x = 1; x <= DataHandler.n; x++) {
 						//GraphManager.nodes[x].pulseBound(0, GraphManager.timeIncumbent, 0 , new ArrayList(), x,0); 	// Solve an ESPPRC for all nodes given the time incumbent
-						GraphManager.nodes[x].pulseBound(GraphManager.capIncumbent, 0, 0 , new ArrayList(), x,0); 	// Solve an ESPPRC for all nodes given the time incumbent
+						GraphManager.nodes[x].pulseMTBound(GraphManager.capIncumbent, 0, 0 , new ArrayList(), x,0,0); 	// Solve an ESPPRC for all nodes given the time incumbent
 
 					}
 
@@ -359,6 +359,7 @@ public class ColumnGeneration_multi {
 			f.delete();
 			GRBEnv   env   = new GRBEnv(logName);
 			GRBModel master = new GRBModel(env);
+			master.set(GRB.DoubleParam.TimeLimit, 3600);
 
 
 			//double cost;
@@ -451,7 +452,6 @@ public class ColumnGeneration_multi {
 
 		return 1E10;
 	}
-
 
 	public class GRBVarArray {
 		// Creation of a new class similar to an ArrayList for Gurobi unknowns

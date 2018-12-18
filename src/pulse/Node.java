@@ -110,10 +110,93 @@ public class Node {
 	}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////7
-	
+public void pulseMTBound(double PLoad, double PTime, double PCost, ArrayList path, int root, double PDist, int thread) throws InterruptedException {
+
+	// If the node is visited for the first time, sort the outgoing arcs array
+	if(this.firstTime==true){
+		this.firstTime=false;
+		this.Sort(this.magicIndex);
+	}
+
+	// If the node is reached before the lower time window wait until the beginning of the time window
+	if(PTime<this.tw_a){
+		PTime=this.tw_a;
+	}
+
+	//statistics
+	if (GraphManager.visitedMT[id][thread]==0 && (PCost+CalcBoundPhaseII(PLoad))<GraphManager.PrimalBound){
+		GraphManager.count_bound++;
+		GraphManager.count_depth_bound += path.size();
+	}
+
+	// Try to prune pulses with the pruning strategies
+	if((GraphManager.visitedMT[id][thread]==0 && PLoad <= DataHandler.Q &&PTime <= tw_b && (PCost+calcBoundPhaseI(PLoad,root))<GraphManager.bestCost[root] && !rollback(path,PCost,PTime))){
+		// If the pulse is not pruned add it to the path
+		GraphManager.visitedMT[id][thread]=1;
+		path.add(id);
+		// Propagate the pulse through all the outgoing arcs
+		for(int i=0; i<magicIndex.size(); i++){
+
+			double NewPLoad = 0;
+			double NewPTime = 0;
+			double NewPCost = 0;
+			double NewPDist = 0;
+			int Head = DataHandler.arcs[magicIndex.get(i)][1];
+
+			// Update all path attributes
+			NewPTime=(PTime+DataHandler.timeList[magicIndex.get(i)]);
+			NewPCost=(PCost+DataHandler.costList[magicIndex.get(i)]);
+			NewPLoad=(PLoad+DataHandler.loadList[magicIndex.get(i)]);
+			NewPDist=(PDist+DataHandler.distList[magicIndex.get(i)]);
+			// Check feasibility and propagate pulse
+			if( NewPTime<=GraphManager.nodes[Head].tw_b && NewPLoad<=DataHandler.Q && NewPTime<=GraphManager.nodes[0].tw_b){
+				GraphManager.count_inf++;
+				// If the head of the arc is the final node, pulse the final node
+				if (Head == 0) {
+					GraphManager.finalNode.pulseBound(NewPLoad,NewPTime,NewPCost, path, root, NewPDist);
+				}else{
+					// If not in the start node continue the exploration on the current thread
+					if(id!=0){
+						GraphManager.nodes[Head].pulseMTBound(NewPLoad,NewPTime,NewPCost, path, root, NewPDist, thread);
+					}
+					// If standing in the start node, wait for the next available thread to trigger the exploration
+					else {
+						boolean stopLooking = false;
+						for (int j = 1; j < DataHandler.threads.length; j++) {
+							if(!DataHandler.threads[j].isAlive()){
+								DataHandler.threads[j] = new Thread(new PulseTask(Head, NewPLoad, NewPTime, NewPCost, path, NewPDist, j));
+								DataHandler.threads[j].start();
+								stopLooking = true;
+								j = 1000;
+							}
+						}
+						if (!stopLooking) {
+							DataHandler.threads[1].join();
+							DataHandler.threads[1] = new Thread(new PulseTask(Head, NewPLoad, NewPTime, NewPCost, path, NewPDist, 1));
+							DataHandler.threads[1].start();
+						}
+					}
+				}
+			}
+
+		}
+		// Wait for all active threads to finish
+		if(id==0){
+			for (int k = 1; k < DataHandler.threads.length; k++) {
+				DataHandler.threads[k].join();
+			}
+		}
+
+		// Remove the explored node from the path
+		path.remove((path.size()-1));
+		GraphManager.visitedMT[id][thread]=0;
+	}
+}
 
 
-/** Multithread pulse function 
+
+
+	/** Multithread pulse function
  * @param PLoad current load
  * @param PTime current time
  * @param PCost current cost
